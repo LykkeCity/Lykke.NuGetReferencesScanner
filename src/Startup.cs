@@ -31,7 +31,7 @@ namespace Lykke.NuGetReferencesScanner
 
             services.Configure<AppSettings>(s =>
             {
-                s.ApiKey = appSettings.CurrentValue.ApiKey;
+                s.NuGetScannerSettings = appSettings.CurrentValue.NuGetScannerSettings;
             });
 
 

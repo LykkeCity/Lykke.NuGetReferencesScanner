@@ -20,7 +20,7 @@ namespace Lykke.NuGetReferencesScanner.Domain
 
         public GitHubScanner(IOptions<AppSettings> settingsAccessor)
         {
-            _apiKey = settingsAccessor.Value.ApiKey;
+            _apiKey = settingsAccessor.Value.NuGetScannerSettings.ApiKey;
             if (string.IsNullOrWhiteSpace(_apiKey))
             {
                 throw new ArgumentNullException(nameof(_apiKey));
