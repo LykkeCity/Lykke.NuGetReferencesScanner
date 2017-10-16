@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lykke.NuGetReferencesScanner", "src\Lykke.NuGetReferencesScanner.csproj", "{E24CE9F9-8500-4387-9401-9740663B2318}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lykke.NuGetReferencesScanner", "src\Lykke.NuGetReferencesScanner\Lykke.NuGetReferencesScanner.csproj", "{E24CE9F9-8500-4387-9401-9740663B2318}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
