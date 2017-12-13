@@ -10,10 +10,6 @@ namespace Lykke.NuGetReferencesScanner.Controllers
     {
         private readonly GitHubScanner _scanner;
 
-        public HomeController(GitHubScanner scanner)
-        {
-            _scanner = scanner;
-        }
 
         public IActionResult Index()
         {
@@ -21,6 +17,14 @@ namespace Lykke.NuGetReferencesScanner.Controllers
             var model = new RefsScanStatisticsModel { Statistics = result.Statistics, Status = result.Status };
             return View(model);
         }
+
+
+        public HomeController(GitHubScanner scanner)
+        {
+            _scanner = scanner;
+        }
+
+
 
         public IActionResult GetData()
         {
