@@ -9,11 +9,6 @@ namespace Lykke.NuGetReferencesScanner.Domain
         public IComparable Version { get; }
 
 
-        private PackageReference(string name, IComparable version)
-        {
-            Name = name;
-            Version = version;
-        }
 
         public static PackageReference Parse(string name, string version)
         {
@@ -28,6 +23,13 @@ namespace Lykke.NuGetReferencesScanner.Domain
             }
             return new PackageReference(name, new SemanticVersion(0, 0, 0, "UnableToParse"));
         }
+
+        private PackageReference(string name, IComparable version)
+        {
+            Name = name;
+            Version = version;
+        }
+
 
         private bool Equals(PackageReference other)
         {
