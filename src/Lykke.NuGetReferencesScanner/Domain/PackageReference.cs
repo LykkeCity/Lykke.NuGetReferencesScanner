@@ -1,14 +1,15 @@
-using System;
+﻿using System;
+using NuGet.Versioning;
 
 namespace Lykke.NuGetReferencesScanner.Domain
 {
     public sealed class PackageReference
     {
         public string Name { get; }
-        public Version Version { get; }
+        public IComparable Version { get; }
 
 
-        private PackageReference(string name, Version version)
+        private PackageReference(string name, IComparable version)
         {
             Name = name;
             Version = version;
@@ -16,7 +17,16 @@ namespace Lykke.NuGetReferencesScanner.Domain
 
         public static PackageReference Parse(string name, string version)
         {
-            return new PackageReference(name, Version.Parse(version));
+            version = version.Replace("*", "9999.9999");
+            if (SemanticVersion.TryParse(version, out var ver))
+            {
+                return new PackageReference(name, ver);
+            }
+            if (System.Version.TryParse(version, out var ver2))
+            {
+                return new PackageReference(name, new SemanticVersion(ver2.Major, ver2.Minor, ver2.Build, ver2.Revision.ToString(), "NotSemVer!"));
+            }
+            return new PackageReference(name, new SemanticVersion(0, 0, 0, "UnableToParse"));
         }
 
         private bool Equals(PackageReference other)

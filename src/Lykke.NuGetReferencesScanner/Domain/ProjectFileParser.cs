@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -6,7 +6,7 @@ namespace Lykke.NuGetReferencesScanner.Domain
 {
     public static class ProjectFileParser
     {
-        private const string Pattern = "<PackageReference\\s+Include\\s*=\\s*\\\"(Lykke.+)\\\"\\s+Version\\s*=\\s*\"([\\d.]+)\\\"";
+        private const string Pattern = "<PackageReference\\s+Include\\s*=\\s*\\\"(Lykke.+)\\\"\\s+Version\\s*=\\s*\"(.+)\\\"";
         private static readonly Regex Regex = new Regex(Pattern);
 
 
