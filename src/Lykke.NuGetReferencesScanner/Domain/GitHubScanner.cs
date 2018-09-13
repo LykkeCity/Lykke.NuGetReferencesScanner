@@ -41,9 +41,10 @@ namespace Lykke.NuGetReferencesScanner.Domain
 
             var repoClient = client.Repository;
 
-            var scr = new SearchCodeRequest("PackageReference")
+            var scr = new SearchCodeRequest("PackageReference Lykke")
             {
-                Organization = "LykkeCity"
+                Organization = "LykkeCity",
+                Extension = "csproj"
             };
 
             try
@@ -55,10 +56,11 @@ namespace Lykke.NuGetReferencesScanner.Domain
 
                 for (int i = 0; i < _packagesFound / 100; i++)
                 {
-                    scr = new SearchCodeRequest("PackageReference")
+                    scr = new SearchCodeRequest("PackageReference Lykke")
                     {
                         Organization = "LykkeCity",
-                        Page = i
+                        Extension = "csproj",
+                        Page = i,
                     };
 
                     searchResult = await client.Search.SearchCode(scr);
