@@ -57,7 +57,7 @@ namespace Lykke.NuGetReferencesScanner.Domain
                 for (int i = 0; i < _packagesFound; i += 100)
                 {
                     var pageNumber = i / 100;
-                    scr = new SearchCodeRequest("PackageReference Assets")
+                    scr = new SearchCodeRequest("PackageReference Lykke")
                     {
                         Organization = "LykkeCity",
                         Extension = "csproj",
