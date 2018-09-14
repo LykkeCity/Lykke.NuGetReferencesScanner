@@ -54,17 +54,18 @@ namespace Lykke.NuGetReferencesScanner.Domain
 
                 _packagesFound = searchResult.TotalCount;
 
-                for (int i = 0; i < _packagesFound / 100; i++)
+                for (int i = 0; i < _packagesFound; i += 100)
                 {
-                    scr = new SearchCodeRequest("PackageReference Lykke")
+                    var pageNumber = i / 100;
+                    scr = new SearchCodeRequest("PackageReference Assets")
                     {
                         Organization = "LykkeCity",
                         Extension = "csproj",
-                        Page = i,
+                        Page = pageNumber,
                     };
 
                     searchResult = await client.Search.SearchCode(scr);
-                    Console.WriteLine($"Page {i} received {searchResult.Items.Count}");
+                    Console.WriteLine($"Page {pageNumber} received {searchResult.Items.Count}");
 
 
                     foreach (var item in searchResult.Items)
